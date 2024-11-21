@@ -64,10 +64,7 @@ char	*ft_currline(char *store)
 		cnt++;
 	str = ft_substr_modified(store, 0, cnt + ft_endl(store));
 	if (!str)
-	// {
-	// 	free (str);
 		return (NULL);
-	// }
 	return (str);
 }
 
