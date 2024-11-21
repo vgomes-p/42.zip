@@ -20,6 +20,11 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+/* ******** */
+/* INCLUDES */
+/* ******** */
+# define BUFFER_SIZE 42;
+
 /* **************************** */
 /* FUNCTIONS ON GET_NEXT_LINE.C */
 /* **************************** */

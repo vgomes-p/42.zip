@@ -64,10 +64,10 @@ char	*ft_currline(char *store)
 		cnt++;
 	str = ft_substr_modified(store, 0, cnt + ft_endl(store));
 	if (!str)
-	{
-		free (str);
+	// {
+	// 	free (str);
 		return (NULL);
-	}
+	// }
 	return (str);
 }
 
@@ -99,7 +99,7 @@ char	*ft_addline(char *store)
 }
 
 //5
-char	get_next_line(int fd)
+char	*get_next_line(int fd)
 {
 	char		*line;
 	static char	*store;
@@ -111,5 +111,5 @@ char	get_next_line(int fd)
 		return (0);
 	line = ft_currline(store);
 	store = ft_addline(store);
-	return (*line);
+	return (line);
 }
