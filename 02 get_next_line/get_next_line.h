@@ -13,25 +13,33 @@
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
+/* ******** */
+/* INCLUDES */
+/* ******** */
+# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <limits.h>
 
-# define ARG_MAX 4096
-# define OPEN_MAX 1024 //mudar se necessario
+/* **************************** */
+/* FUNCTIONS ON GET_NEXT_LINE.C */
+/* **************************** */
+char	get_next_line(int fd);
 
-# define READ_OK 1
-# define EOF_RCHD 0
-# define ERR_HPND -1
-
-# define NO_ENDLINE 0
-# define FOUND_ENDLINE 1
-
-int		get_next_line(int fd, char **line);
-
-/* Utils */
-
+/* ********************************** */
+/* FUNCTIONS ON GET_NEXT_LINE_UTILS.C */
+/* ********************************** */
 size_t	ft_strlen(const char *var);
-char	*ft_strdup(const char *str0);
+char	*ft_strchr(const char *str, int ch);
+size_t	ft_strlcpy(char *dest, const char *src, size_t size);
+char	*ft_strjoin(char const *str0, char const *str1);
+char	*ft_substr_modified(char const *str, unsigned int start, size_t len);
+
+/* *************************************** */
+/* ADDITIONAL FUNCTIONS ON GET_NEXT_LINE.C */
+/* ************************************** */
+int		ft_endl(char	*ch);
+char	*ft_read(int fd, char *store);
+char	*ft_currline(char *store);
+char	*ft_addline(char *store);
 
 #endif
