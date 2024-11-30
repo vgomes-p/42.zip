@@ -19,7 +19,7 @@
 # include <unistd.h>
 
 /* DEFINE -- NOT NEEDED */
-// # define BUFFER_SIZE 42;
+
 
 /* FUNCTIONS ON GET_NEXT_LINE.C */
 char	*get_next_line(int fd);
