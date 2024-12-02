@@ -42,24 +42,19 @@ char	*ft_read(int fd, char *store)
 char	*ft_currline(char *store)
 {
 	int		cnt;
-	char	*str;
+	char	*line;
 
 	cnt = 0;
 	if (!store[cnt])
 		return (NULL);
 	while (store[cnt] && store[cnt] != '\n')
 		cnt++;
-	str = ft_substr_mod(store, 0, cnt + ft_endl(store));
-	if (!str)
-	{
-		free (str);
-		return (NULL);
-	}
-	return (str);
+	line = ft_substr_mod(store, 0, cnt + (store[cnt] == '\n'));
+	return (line);
 }
 
 //function_03
-char	*ft_addline(char *store)
+char	*ft_trimline(char *store)
 {
 	char	*str;
 	int		cnt0;
@@ -97,6 +92,6 @@ char	*get_next_line(int fd)
 	if (!store)
 		return (0);
 	line = ft_currline(store);
-	store = ft_addline(store);
+	store = ft_trimline(store);
 	return (line);
 }

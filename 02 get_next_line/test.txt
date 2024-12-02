@@ -1,0 +1,98 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    test.txt                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: vgomes-p <vgomes-p@student.42sp.org.br>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/12/02 18:50:10 by vgomes-p          #+#    #+#              #
+#    Updated: 2024/12/02 18:50:10 by vgomes-p         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+Inclui a biblioteca get_next_line.h
+
+Início da função ft_strlen, tipo size_t e ponteiro const char chamado var
+Declaração de uma variável cnt do tipo size_t
+Inicializa cnt com 0
+Laço while que percorre cada caractere da string até encontrar o terminador '\0'
+Incrementa cnt
+Retorna o valor de cnt, que é o comprimento da string
+
+Início da função ft_strchr_mod, recebe um ponteiro const char chamado str e um int ch
+Declaração de uma variável cnt do tipo int
+Declaração de um ponteiro char chamado strbase
+Verifica se str ou ch são inválidos (NULL ou 0)
+Retorna NULL caso seja
+Inicializa cnt com 0
+Faz um cast de str para um ponteiro char
+Laço while que percorre os caracteres de strbase
+Se o caractere atual for igual ao caractere procurado
+Retorna o endereço do caractere encontrado
+Incrementa cnt para passar para o próximo caractere
+Retorna 0 caso o caractere procurado não seja encontrado
+
+Início da função ft_strjoin_mod, recebe dois ponteiros char chamados str0 e str1
+Declaração de um ponteiro char chamado nwstr e duas variáveis do tipo size_t chamadas cnt0 e cnt1
+Verifica se str0 é NULL, caso seja, aloca memória para um caractere e inicializa com '\0'
+Aloca memória para nwstr com o tamanho da soma das duas strings mais 1 para o terminador '\0'
+Verifica se a alocação falhou e retorna NULL caso tenha falhado
+Inicializa cnt0 e cnt1 com 0
+Laço while que copia os caracteres de str0 para nwstr
+Laço while que copia os caracteres de str1 para nwstr
+Adiciona o terminador '\0' em nwstr
+Libera a memória de str0
+Retorna nwstr, que contém a string concatenada
+
+Início da função ft_substr_mod, recebe um ponteiro const char chamado str, um unsigned int chamado start e um size_t chamado len
+Declaração de um ponteiro char chamado nwstr e duas variáveis do tipo size_t chamadas cnt0 e cnt1
+Aloca memória para nwstr com o tamanho len + 1 para o terminador '\0'
+Verifica se a alocação falhou e retorna NULL caso tenha falhado
+Verifica se str é NULL e retorna NULL caso seja
+Inicializa cnt0 com o valor de start e cnt1 com 0
+Laço while que copia os caracteres de str para nwstr, respeitando o limite de len
+Adiciona o terminador '\0' em nwstr
+Retorna nwstr, que contém a substring
+
+Início da função ft_read, recebe um inteiro fd e um ponteiro char chamado store
+Declaração de um ponteiro char chamado temp e uma variável do tipo int chamada readby
+Aloca memória para temp com o tamanho de BUFFER_SIZE + 1
+Verifica se a alocação falhou e retorna NULL caso tenha falhado
+Inicializa readby com 1
+Laço while que executa enquanto não encontrar um caractere '\n' em store e readby for diferente de 0
+Chama a função read para ler dados do arquivo para temp, respeitando o limite de BUFFER_SIZE
+Verifica se a leitura falhou (readby < 0), se falhar, libera store e temp e retorna NULL
+Adiciona o terminador '\0' em temp
+Chama a função ft_strjoin_mod para concatenar store com temp
+Libera a memória de temp
+Retorna store com os dados lidos
+
+Início da função ft_currline, recebe um ponteiro char chamado store
+Declaração de uma variável cnt do tipo int e um ponteiro char chamado line
+Inicializa cnt com 0
+Verifica se store é uma string vazia, retorna NULL se for
+Laço while que percorre store até encontrar o caractere '\n' ou o final da string
+Chama a função ft_substr_mod para criar uma substring de store, contendo a linha até o '\n', incluindo o próprio '\n' se encontrado
+Retorna line, que contém a linha extraída de store
+
+Início da função ft_trimline, recebe um ponteiro char chamado store
+Declaração de um ponteiro char chamado str e duas variáveis do tipo int chamadas cnt0 e cnt1
+Inicializa cnt0 e cnt1 com 0
+Laço while que percorre store até encontrar o caractere '\n' ou o final da string
+Verifica se não encontrou '\n', caso não, libera store e retorna NULL
+Aloca memória para str com o tamanho de store menos cnt0 mais 1 para o terminador '\0'
+Verifica se a alocação falhou e retorna NULL caso tenha falhado
+Inicializa cnt0 com 1 (para pular o caractere '\n')
+Laço while que copia os caracteres de store para str a partir de cnt0
+Adiciona o terminador '\0' em str
+Libera a memória de store
+Retorna str, que contém a parte restante de store após a linha removida
+
+Início da função get_next_line, recebe um inteiro fd
+Declaração de um ponteiro char chamado line e um ponteiro estático char chamado store
+Verifica se fd é inválido ou se BUFFER_SIZE é menor ou igual a 0, retorna NULL nesses casos
+Chama a função ft_read para ler dados do arquivo para store
+Verifica se store é NULL, retorna NULL se for
+Chama a função ft_currline para extrair a próxima linha de store
+Chama a função ft_trimline para remover a linha extraída de store
+Retorna line, que contém a próxima linha lida do arquivo

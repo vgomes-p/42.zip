@@ -18,22 +18,21 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-/* DEFINE -- NOT NEEDED */
-
+/* DEFINE */
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
 /* FUNCTIONS ON GET_NEXT_LINE.C */
+char	*ft_read(int fd, char *store);
+char	*ft_currline(char *store);
+char	*ft_trimline(char *store);
 char	*get_next_line(int fd);
 
 /* FUNCTIONS ON GET_NEXT_LINE_UTILS.C */
 size_t	ft_strlen(const char *var);
-char	*ft_strchr_mod(const char *str, int ch);;
+char	*ft_strchr_mod(char const *str, int ch);
 char	*ft_strjoin_mod(char *str0, char *str1);
 char	*ft_substr_mod(char const *str, unsigned int start, size_t len);
-int		ft_endl(char	*ch);
-
-/* ADDITIONAL FUNCTIONS ON GET_NEXT_LINE.C */
-char	*ft_read(int fd, char *store);
-char	*ft_currline(char *store);
-char	*ft_addline(char *store);
 
 #endif

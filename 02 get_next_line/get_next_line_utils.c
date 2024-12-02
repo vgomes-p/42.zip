@@ -92,16 +92,3 @@ char	*ft_substr_mod(char const *str, unsigned int start, size_t len)
 	nwstr[cnt1] = '\0';
 	return (nwstr);
 }
-
-//function_04
-int	ft_endl(char	*ch)
-{
-	size_t	cnt;
-
-	cnt = 0;
-	while (ch[cnt] != '\n' && ch[cnt] != '\0')
-		cnt++;
-	if (ch[cnt] == '\n')
-		return (1);
-	return (0);
-}
