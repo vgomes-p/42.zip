@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgomes-p <vgomes-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/29 11:19:27 by vgomes-p          #+#    #+#             */
-/*   Updated: 2024/11/29 11:19:27 by vgomes-p         ###   ########.fr       */
+/*   Created: 2024/12/03 14:17:48 by vgomes-p          #+#    #+#             */
+/*   Updated: 2024/12/03 14:17:48 by vgomes-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define GET_NEXT_LINE_H
 
 /* INCLUDES */
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
