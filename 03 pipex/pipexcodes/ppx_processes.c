@@ -6,7 +6,7 @@
 /*   By: vgomes-p <vgomes-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 17:25:08 by vgomes-p          #+#    #+#             */
-/*   Updated: 2024/12/08 02:47:59 by vgomes-p         ###   ########.fr       */
+/*   Updated: 2024/12/10 17:11:17 by vgomes-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	low_process(char **argv, char **envar, int *fd)
 	dup2(fd[1], STDOUT_FILENO);
 	dup2(infile, STDIN_FILENO);
 	close(fd[0]);
-	signal(SIGPIPE, SIG_DFL);
 	execmd(argv[2], envar);
 }
 
